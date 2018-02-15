@@ -146,9 +146,13 @@ defmodule OauthJwt.Client do
     case HTTPoison.request(method, url, body, headers, options) do
       #response = %{status_code: status_code} when status >= 200 and status <= 299 ->
       #  {:ok, response}
-      %{status_code: status_code} when status_code == 401 and attempt <= max_attempts ->
+      {:ok, %{status_code: status_code}} when status_code == 401 and attempt <= max_attempts ->
         {_, bearer_token} = get_auth_header(pid)
         headers = headers |> Enum.into(Map.new) |> Map.put("Authorization", bearer_token) |> Map.to_list
+        :timer.sleep(:timer.seconds(1*attempt))
+        do_request(pid, method, url, body, headers, options, attempt+1, max_attempts)
+      {:error, error} ->
+        :timer.sleep(:timer.seconds(1*attempt))
         do_request(pid, method, url, body, headers, options, attempt+1, max_attempts)
       response -> response
     end
