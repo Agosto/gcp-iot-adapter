@@ -2,6 +2,12 @@
 
 The adapter interfaces with RabbitMQ (any AMQP-compliant broker should work), and sends/receives messages to Google Cloud Pub/Sub.
 
+## Deprecation Notice:
+
+Now that Google's [Cloud IoT Core](https://cloud.google.com/iot-core/) has gone GA, we recommend that people use this instead of this IOT Adapter. IoT Core will scale far beyond a single RabbitMQ instance, and does not require management of a VM. It also has a stronger device authentication model.
+
+The gcp-iot-adapter will remain available, but will not be maintained.
+
 ## Super-quick-start:
 
 Make sure that docker is installed, then run this:
