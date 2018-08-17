@@ -4,9 +4,9 @@ The adapter interfaces with RabbitMQ (any AMQP-compliant broker should work), an
 
 ## Deprecation Notice:
 
-Now that Google's [Cloud IoT Core](https://cloud.google.com/iot-core/) has gone GA, we recommend that people use this instead of this IOT Adapter. IoT Core will scale far beyond a single RabbitMQ instance, and does not require management of a VM. It also has a stronger device authentication model.
+Now that Google's [Cloud IoT Core](https://cloud.google.com/iot-core/) has gone GA, we recommend that people use IoT Core instead of this IOT Adapter. IoT Core will scale far beyond a single RabbitMQ instance, and does not require management of a VM. It also has a stronger device authentication model.
 
-The gcp-iot-adapter will remain available, but will not be maintained.
+The gcp-iot-adapter will remain available, but will not be actively maintained.
 
 ## Super-quick-start:
 
